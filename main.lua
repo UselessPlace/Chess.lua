@@ -1,10 +1,3 @@
-local Number = 1
+require("board")
 
- 
-
-print(Number.."epik")
-
-
-
-
-
+DrawBoard()
