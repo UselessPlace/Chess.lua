@@ -49,7 +49,7 @@ end
 
 function GetPiece(PieceX,PieceY)
 
-    print("Piece selected: "WholeBoard[PieceX][PieceY])
+    print("Piece selected: "..WholeBoard[PieceX][PieceY])
     
 
 
