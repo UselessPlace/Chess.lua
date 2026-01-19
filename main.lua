@@ -1,3 +1,6 @@
+
+print("Moi")
+
 require("board")
 
 local Play = true
