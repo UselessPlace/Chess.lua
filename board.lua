@@ -35,7 +35,7 @@ function DrawBoard()
 
 DrawBoardPieces()
 print("")
-    print("A B C D E F G H")
+    print("A B C D E F G H (Imagine that these are numbers too from 1-8)")
 
 SaveBoardPieces()
 end
@@ -48,13 +48,26 @@ function SaveBoardPieces()
 end
 
 function GetPiece(PieceX,PieceY)
+    if PieceX then
+        if PieceY then
+        print("Piece selected: "..WholeBoard[PieceX][PieceY])
+            else
+            print("not a valid coordinate")
+            SelectPiece()
+        end
+        else
+        print("not a valid coordinate")
+        SelectPiece()
+        end
+        SelectPiece()
+    end
 
-    print("Piece selected: "..WholeBoard[PieceX][PieceY])
     
 
 
 
-end
+
+
 function MovePiece()
 
 print("lol")
