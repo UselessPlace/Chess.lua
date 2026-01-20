@@ -74,7 +74,8 @@ function GetPiece(PieceX,PieceY) --mhm
             else
 
         print("Piece selected: "..WholeBoard[PieceX][PieceY].. " (".. PieceX..","..PieceY.. ")")
-        lastPiece = WholeBoard[PieceX][PieceY]
+        local selectedPiece = WholeBoard[PieceX][PieceY]
+        lastPiece = tostring(WholeBoard[PieceX][PieceY])
         lastPieceX = PieceX
         lastPieceY = PieceY
         WholeBoard[PieceX][PieceY] = "#"
@@ -83,9 +84,10 @@ function GetPiece(PieceX,PieceY) --mhm
         for i = 1, 8 do
 
         print(table.concat(WholeBoard[i], " ").. " "..i)
-        MovePiece(PieceX,PieceY)
+
+        
         end
-        SelectPiece()
+       MovePiece(PieceX,PieceY,selectedPiece)
     end
         
     else
@@ -100,10 +102,28 @@ end
 end
 
 
-function MovePiece(PieceX,PieceY)
-print("Where do you want to move:"..WholeBoard[PieceX][PieceY])
+function MovePiece(PieceX,PieceY,selectedPiece)
 
+print("Where do you want to move:"..selectedPiece)
+print("(in the X axis)")
 MovePieceX = io.read("*number")
+
+if MovePieceX then
+print("in the Y axis?")
+MovePieceY = io.read("*number")
+if MovePieceY then
+WholeBoard[PieceX][PieceY] = "X"
+WholeBoard[MovePieceX][MovePieceY] = selectedPiece
+
+for i=1,8 do
+print(table.concat(WholeBoard[i]," ").." "..i)
+
+end
+
+
+
+end
+end
 
 
 
