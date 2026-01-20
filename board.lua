@@ -22,20 +22,21 @@ local WholeBoard = { {"R", "N", "B", "K","Q", "B", "N", "R"} ,
 -----
 
 
+local changeNumbersToLetters = {A=1,B=2,C=3}
+
 
 local numbers = {"3","4","5","6","7","8"}
-function DrawBoardPieces()
-print(table.concat(Row1, " ").. "  1")
-print(table.concat(Row2, " ").. "  2")
 
-    for i=1,4  do
-        print(table.concat(Row3, " ").."  "..numbers[i])
+function DrawBoardPieces()
+
+    for i=1,8  do
+        print(table.concat(WholeBoard[i], " ").." "..i)
+        
         i = i + 1
         
     end
     
-print(table.concat(Row2, " ").. "  7")
-print(table.concat(Row1, " ").. "  8")
+
 
 end
 
@@ -81,8 +82,8 @@ function GetPiece(PieceX,PieceY) --mhm
         
         for i = 1, 8 do
 
-        print(table.concat(WholeBoard[i], " "))
-
+        print(table.concat(WholeBoard[i], " ").. " "..i)
+        MovePiece(PieceX,PieceY)
         end
         SelectPiece()
     end
@@ -99,9 +100,11 @@ end
 end
 
 
-function MovePiece()
+function MovePiece(PieceX,PieceY)
+print("Where do you want to move:"..WholeBoard[PieceX][PieceY])
 
-print("lol")
+MovePieceX = io.read("*number")
+
 
 
 end

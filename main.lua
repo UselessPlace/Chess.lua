@@ -41,7 +41,7 @@ Play = false
 DrawBoard() --Draws board :D
 
 SelectPiece()
-MovePiece()
+
 
 end
 
