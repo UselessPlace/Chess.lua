@@ -13,11 +13,11 @@ print("Warning! if you miss type a letter ur terminal will blow up")
 print("select piece by using coordinates:")
 print("Input text axis (example 1)")
 if PieceX == 0 then
-PieceX = io.read("*number")
+PieceY =  io.read("*number")
 
 print("Input number axis (example 4)")
-PieceY = io.read("*number")
-     
+PieceX = 9- io.read("*number") 
+     print("PieceXandY: "..PieceX.." "..PieceY)
 
      GetPiece(PieceX,PieceY)
 else

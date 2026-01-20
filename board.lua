@@ -22,15 +22,15 @@ local WholeBoard = { {"R", "N", "B", "K","Q", "B", "N", "R"} ,
 -----
 
 
-local changeNumbersToLetters = {A=1,B=2,C=3}
+local changeNumbersToLetters = {a=1,b=2,c=3,d=4,e=5,f=6,g=7,h=8}
 
 
-local numbers = {"3","4","5","6","7","8"}
+
 
 function DrawBoardPieces()
 
     for i=1,8  do
-        print(table.concat(WholeBoard[i], " ").." "..i)
+        print(table.concat(WholeBoard[i], " ").." ".. 9-i)
         
         i = i + 1
         
@@ -82,8 +82,13 @@ function GetPiece(PieceX,PieceY) --mhm
         
         
         for i = 1, 8 do
-
-        print(table.concat(WholeBoard[i], " ").. " "..i)
+        
+        if i < 6 then
+        print(string.lower(table.concat(WholeBoard[i], " ").. " ".. 9-i))
+        else
+         print(table.concat(WholeBoard[i], " ").." ".. 9-i)
+        end
+        
 
         
         end
@@ -102,29 +107,64 @@ end
 end
 
 
-function MovePiece(PieceX,PieceY,selectedPiece)
+local function nextTurn()
+    
+end
 
+
+
+
+
+
+function MovePiece(PieceX,PieceY,selectedPiece)
+local tempWholeBoard = WholeBoard
 print("Where do you want to move:"..selectedPiece)
 print("(in the X axis)")
 MovePieceX = io.read("*number")
 
 if MovePieceX then
 print("in the Y axis?")
-MovePieceY = io.read("*number")
+MovePieceY = 9 - io.read("*number")
+print(PieceX.." "..PieceY.." "..MovePieceX.." "..MovePieceY)
 if MovePieceY then
-WholeBoard[PieceX][PieceY] = "X"
-WholeBoard[MovePieceX][MovePieceY] = selectedPiece
+    if WholeBoard[MovePieceY][MovePieceX] == "X" then
+WholeBoard[PieceY][PieceX] = "X"
+ 
+WholeBoard[MovePieceY][MovePieceX] = selectedPiece
+print("selectedPieceIs:"..selectedPiece)
+for i=1,8 do
+print(table.concat(WholeBoard[i]," ").." ".. 9-i)
+
+end
+
+SelectPiece()
+
+else
+
+print(WholeBoard[PieceX][PieceY])
 
 for i=1,8 do
-print(table.concat(WholeBoard[i]," ").." "..i)
+    
+tempWholeBoard[PieceX][PieceY] = selectedPiece
+print(table.concat(tempWholeBoard[i], " ").." ".. 9-i)
+end
+print("Theres a piece there !!!!")
+SelectPiece()
 
+end
+
+nextTurn()
+
+
+end
+
+end
 end
 
 
 
-end
-end
 
 
 
-end
+
+
