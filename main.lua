@@ -2,6 +2,7 @@
 print("Moi")
 
 require("board")
+local changeNumbersToLetters = {a=1,b=2,c=3,d=4,e=5,f=6,g=7,h=8}
 
 local Play = true
 
@@ -14,6 +15,7 @@ print("select piece by using coordinates:")
 print("Input text axis (example 1)")
 if PieceX == 0 then
 PieceY =  io.read("*number")
+
 
 print("Input number axis (example 4)")
 PieceX = 9- io.read("*number") 

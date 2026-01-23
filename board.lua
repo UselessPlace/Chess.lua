@@ -19,7 +19,7 @@ local WholeBoard = { {"R", "N", "B", "K","Q", "B", "N", "R"} ,
                     
 
 
------
+------
 
 
 local changeNumbersToLetters = {a=1,b=2,c=3,d=4,e=5,f=6,g=7,h=8}
@@ -56,13 +56,13 @@ end
 
 function SaveBoardPieces()
 
-
+--Very secret stuff here :P
 
 end
 
 function GetPiece(PieceX,PieceY) --mhm
     if lastPieceX then
-        WholeBoard[lastPieceX][lastPieceY] = lastPiece
+        WholeBoard[lastPieceX][lastPieceY] = "X"
     end
 
     if PieceX then
@@ -133,8 +133,13 @@ WholeBoard[PieceY][PieceX] = "X"
 WholeBoard[MovePieceY][MovePieceX] = selectedPiece
 print("selectedPieceIs:"..selectedPiece)
 for i=1,8 do
-print(table.concat(WholeBoard[i]," ").." ".. 9-i)
-
+    
+    if i < 6 then
+        print(string.lower(table.concat(WholeBoard[i], " ").. " ".. 9-i))
+        else
+         print(table.concat(WholeBoard[i], " ").." ".. 9-i)
+        end
+        
 end
 
 SelectPiece()
